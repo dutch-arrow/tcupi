@@ -1,0 +1,13 @@
+[Unit]
+Description=TCU Service
+After=multi-user.target
+Requires=bluetooth.target
+[Service]
+WorkingDirectory=/home/tom
+StandardOutput=file:/home/tom/tcu.log
+StandardError=file:/home/tom/tcu_error.log
+ExecStart=/bin/bash /home/tom/start_tcu.sh
+Restart=always
+RestartSec=5
+[Install]
+WantedBy=multi-user.target
