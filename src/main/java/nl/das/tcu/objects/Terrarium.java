@@ -228,14 +228,18 @@ public class Terrarium {
 		return json;
 	}
 
-	public void saveSettings() {
+	public void saveSettings(String settingsPath) {
 		Jsonb jsonb = JsonbBuilder.create(new JsonbConfig().withFormatting(true).withNullValues(true));
 		try {
-			Files.deleteIfExists(Paths.get("settings.json"));
-			Files.writeString(Paths.get("settings.json"), jsonb.toJson(Terrarium.cfg), StandardOpenOption.CREATE_NEW);
+			Files.deleteIfExists(Paths.get(settingsPath));
+			Files.writeString(Paths.get(settingsPath), jsonb.toJson(Terrarium.cfg), StandardOpenOption.CREATE_NEW);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void saveSettings() {
+		saveSettings("settings.json");
 	}
 
 	public void saveLifecycleCounters() {
