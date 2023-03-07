@@ -50,7 +50,7 @@ import nl.das.tcu.Util;
  * pin 35 - GPIO-24  (fan_in)
  * pin 37 - GPIO-25  (fan_out)
  * pin 36 - GPIO-27  (temperature external DHT22)
- * pin  7 - GPIO-04  (temperature internal DS18B20)
+ * pin  7 - GPIO-07  (temperature internal DS18B20)
  * pin  3 - GPIO-08  (LCD SDA)
  * pin  5 - GPIO-09  (LCD SCL)
  *
