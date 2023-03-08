@@ -49,14 +49,14 @@ The motor of the TCU is the `TCU.java` file. It initializes and configures the h
 starts a Timer and schedules an EachSecondTask, EachMinuteTask and an EachHourTask.
 
 * The EachSecondTask (`EachSecondTask.java`)executes the logic that needs to be executed every second.  
-Since there are Period Timers that have a accuracy in seconds each second the timers are checked.  
-<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Since there are Period Timers that have a accuracy in seconds each second the timers are checked.  
+
 * The EachMinuteTask (`EachMinuteTask.java`) executes the logic that needs to be executed every minute.  
-The rules are checked each minute.  
-<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The rules are checked each minute.  
+
 * The EachHourTask (`EachHourTask.java`) executes the logic that needs to be executed every hour.  
-The Lifecycle counter that can be linked to a Light device is updated each hour.  
-The Trace function is switched on on a full hour.  
+&nbsp;&nbsp;&nbsp;&nbsp;The Lifecycle counter that can be linked to a Light device is updated each hour.  
+&nbsp;&nbsp;&nbsp;&nbsp;The Trace function is switched on on a full hour.  
 
 ### Terrarium Management Configuration
 The data that can be set is defined in the `TerrariumConfig.java` class. This class is converted to JSON and stored on disk in the `settings.json` file on each change in the configuration. It is read in whenever the Pi is rebooted.  
@@ -72,7 +72,7 @@ The Bluetooth service is a Request/Response message service. The Request receive
 
 #### Bluetooth API
 
-##### getProperties
+__Command__ : getProperties
 
 __Data__ : None
 
@@ -80,9 +80,11 @@ __Response__ :
 <pre><code>{"tcu":"TERRARIUMPI","nr_of_timers":23,"nr_of_programs":2,"devices":[
 {"device":"light1", "nr_of_timers":1, "lc_counted":false},
 ....
+{"device":"spare", "nr_of_timers":5, "lc_counted":false}
 ]}</code></pre>
 
-##### getSensors
+---
+__Command__ : getSensors
 
 __Data__ : None
 
@@ -91,6 +93,27 @@ __Response__ :
  "sensors": [ {"location":"room", "temperature":21, "humidity":45 },{"location":"terrarium", "temperature":26} ]
 }</code></pre>
 
+---
+__Command__ : setSensors
+
+__Data__ : 
+<pre><code>{"sensors": [ {"location":"room", "temperature":21, "humidity":45 },
+{"location":"terrarium", "temperature":26}} ]</code></pre>
+
+__Response__ : None
+
+---
+__Command__ : getState
+
+__Data__ : None
+
+__Response__ :
+<pre><code>{"trace":"off","state": [
+{"name":"light1", "onPeriod":-1, "manual":false},
+{"name":"uvlight", "onPeriod":-1, "lifetime": 4398, "manual":false},
+...
+{"name":"spare", "onPeriod":0, "manual":false}
+]}</code></pre>
 
 
 #### using Wifi
