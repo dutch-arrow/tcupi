@@ -50,7 +50,7 @@ public class TCU {
 		Thread restsvr = new Thread() {
 		    @Override
 			public void run(){
-		        RestServer svr = RestServer.getInstance("0.0.0.0", Integer.parseInt(props.getProperty("port")));
+		        RestServer svr = RestServer.getInstance("0.0.0.0", 80);
 		        svr.start();
 		    }
 		};

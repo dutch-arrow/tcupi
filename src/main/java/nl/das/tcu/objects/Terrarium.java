@@ -107,7 +107,7 @@ public class Terrarium {
         devicePin = Collections.unmodifiableMap(aMap);
     };
 
-	public Terrarium() {
+	private Terrarium() {
 		String[] deviceList   = {"light1", "light2", "light3", "light4", "uvlight", "light6", "pump", "sprayer", "mist", "fan_in", "fan_out", "spare"};
 		int[] timersPerDevice = {1,         1,        1,        1,        1,         1,        5,      5,         5,      5,        5,         5};
 		Terrarium.cfg.setDeviceList(deviceList);
