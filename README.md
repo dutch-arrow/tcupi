@@ -157,7 +157,7 @@ __Response__ : None
 
 </details>
 <details>
-<summary>Switch device off</summary>
+<summary>Switch a device off</summary>
 
 *Bluetooth*  
 __Command__ : `setDeviceOff`  
@@ -357,17 +357,21 @@ __Response__ :
 
 </details>
 <details>
-<summary>Get the Sprayer-rule</summary>
+<summary>Set the Sprayer-rule</summary>
 
 *Bluetooth*  
 __Command__ : `setSprayerRule`  
 __Data__ : `{"delay":15,"actions":[{"device":"fan_out","on_period":900},{"device":"fan_in","on_period":900}]}`
 
+*REST*  
+__URL__ : `POST /sprayerrule`  
+__Data__ : `{"delay":15,"actions":[{"device":"fan_out","on_period":900},{"device":"fan_in","on_period":900}]}`  
+
 __Response__ : None
 
 </details>
 <details>
-<summary>Get all Temperature tracefiles</summary>
+<summary>Get all Temperature tracefile names</summary>
 
 *Bluetooth*  
 __Command__ : `getTempTracefiles`  
@@ -382,7 +386,7 @@ __Response__ :
 
 </details>
 <details>
-<summary>Get all State tracefiles</summary>
+<summary>Get all State tracefile names</summary>
 
 *Bluetooth*  
 __Command__ : `getStateTracefiles`  
