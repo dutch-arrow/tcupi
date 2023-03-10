@@ -118,7 +118,7 @@ __Command__ : `setSensors`
 __Data__ : `{"roomtemp":21,"terrtemp":26}`
 
 *REST*  
-__URL__ : `GET /sensors`  
+__URL__ : `POST /sensors/21/26`  
 __Data__ : None
 
 __Response__ : None
