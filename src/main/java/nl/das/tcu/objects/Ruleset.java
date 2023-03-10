@@ -8,7 +8,6 @@ import nl.das.tcu.Util;
 
 public class Ruleset {
 
-	private int terrarium;
 	private String active;
 	private String from;
 	private String to;
@@ -17,8 +16,7 @@ public class Ruleset {
 
 	public Ruleset() { }
 
-	public Ruleset(int terrariumNr, String active, String from, String to, int idealTemp, Rule[] rules) {
-		this.terrarium = terrariumNr;
+	public Ruleset(String active, String from, String to, int idealTemp, Rule[] rules) {
 		this.active = active;
 		this.from = from;
 		this.to = to;
@@ -46,14 +44,6 @@ public class Ruleset {
 	@JsonbTransient
 	public void addRule(int rulenr, Rule rule) {
 		this.rules[rulenr] = rule;
-	}
-
-	public int getTerrarium () {
-		return this.terrarium;
-	}
-
-	public void setTerrarium (int terrarium) {
-		this.terrarium = terrarium;
 	}
 
 	public String getActive () {

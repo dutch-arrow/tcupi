@@ -162,13 +162,13 @@ public class Terrarium {
 			}
 		}
 		// Initialize rulesets
-		Terrarium.cfg.setRuleset(0, new Ruleset(1, "no", "", "", 0,
+		Terrarium.cfg.setRuleset(0, new Ruleset("no", "", "", 0,
 			new Rule[] {
 				new Rule(0, new Action[] { new Action("no device", 0), new Action("no device", 0) }),
 				new Rule(0, new Action[] { new Action("no device", 0), new Action("no device", 0) })
 			}
 		));
-		Terrarium.cfg.setRuleset(1, new Ruleset(1, "no", "", "", 0,
+		Terrarium.cfg.setRuleset(1, new Ruleset("no", "", "", 0,
 			new Rule[] {
 				new Rule(0, new Action[] { new Action("no device", 0), new Action("no device", 0) }),
 				new Rule(0, new Action[] { new Action("no device", 0), new Action("no device", 0) })
@@ -215,7 +215,7 @@ public class Terrarium {
 
 	public String getProperties() {
 		String json = "";
-		json += "{\"tcu\":\"TERRARIUMPI\",\"nr_of_timers\":" + Terrarium.cfg.getTimers().length + ",\"nr_of_programs\":" + NR_OF_RULESETS + ",";
+		json += "{\"nr_of_timers\":" + Terrarium.cfg.getTimers().length + ",\"nr_of_programs\":" + NR_OF_RULESETS + ",";
 		json += "\"devices\": [";
 		for (int i = 0; i < NR_OF_DEVICES; i++) {
 			json += "{\"device\":\"" + Terrarium.devices[i].getName() + "\", \"nr_of_timers\":" + Terrarium.cfg.getTimersPerDevice()[i] + ", \"lc_counted\":";
